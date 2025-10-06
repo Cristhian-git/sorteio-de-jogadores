@@ -145,7 +145,7 @@ if (jogadores.length < 8) {
  const continuar = confirm("Poucos jogadores. Deseja continuar?");
         
         if (continuar) {
-            // Usuário clicou em "Sim"
+            // Usuário clicou em "ok"
             console.log("Usuário quer continuar mesmo com poucos jogadores.");
             // Coloque aqui a condicional para continuar o sorteio
             const times = dividirEmTimes(jogadores, 4);
