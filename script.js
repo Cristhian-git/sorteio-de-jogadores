@@ -142,12 +142,25 @@ botaoSortear.addEventListener('click', () => {
     return;
   }
 if (jogadores.length < 8) {
-    alert('⚠️ Poucos jogadores, para um sorteio completo adicione mais alguns.') ;
-  }
-  const times = dividirEmTimes(jogadores, 4);
+ const continuar = confirm("Poucos jogadores. Deseja continuar?");
+        
+        if (continuar) {
+            // Usuário clicou em "Sim"
+            console.log("Usuário quer continuar mesmo com poucos jogadores.");
+            // Coloque aqui a condicional para continuar o sorteio
+            const times = dividirEmTimes(jogadores, 4);
   renderTimes(times);
   alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.')
-});
+        } else {
+            // Usuário clicou em "Não"
+            console.log("Usuário não quer continuar.");
+            // Coloque aqui a condicional para interromper ou outra ação
+            return; // Encerra a função para não continuar
+        }
+  //const times = dividirEmTimes(jogadores, 4);
+  //renderTimes(times);
+  //alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.')
+}});
 
 // Botão limpar lista
 botaoLimpar.addEventListener('click', () => {
