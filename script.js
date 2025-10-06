@@ -141,7 +141,9 @@ botaoSortear.addEventListener('click', () => {
     timesContainer.textContent = '⚠️ Adicione jogadores antes de sortear.';
     return;
   }
-
+if (jogadores.length < 8) {
+    alert('⚠️ Poucos jogadores, para um sorteio completo adicione mais alguns.') ;
+  }
   const times = dividirEmTimes(jogadores, 4);
   renderTimes(times);
   alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.')
