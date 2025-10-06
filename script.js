@@ -144,7 +144,7 @@ botaoSortear.addEventListener('click', () => {
 
   const times = dividirEmTimes(jogadores, 4);
   renderTimes(times);
-  alert('TIMES SORTEADOS!')
+  alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.')
 });
 
 // Botão limpar lista
