@@ -141,11 +141,14 @@ botaoSortear.addEventListener('click', () => {
     timesContainer.textContent = '⚠️ Adicione jogadores antes de sortear.';
     return;
   }
-
-  if (jogadores.length < 8) {
+  else if (jogadores.length > 8){
+  const times = dividirEmTimes(jogadores, 4);
+      renderTimes(times);
+      alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.');
+ }
+   else if (jogadores.length < 8) {
     const continuar = confirm("Poucos jogadores. Deseja continuar?");
-        
-    if (continuar) {
+        if (continuar) {
       console.log("Usuário quer continuar mesmo com poucos jogadores.");
       const times = dividirEmTimes(jogadores, 4);
       renderTimes(times);
