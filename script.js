@@ -141,26 +141,25 @@ botaoSortear.addEventListener('click', () => {
     timesContainer.textContent = '⚠️ Adicione jogadores antes de sortear.';
     return;
   }
-if (jogadores.length < 8) {
- const continuar = confirm("Poucos jogadores. Deseja continuar?");
+
+  if (jogadores.length < 8) {
+    const continuar = confirm("Poucos jogadores. Deseja continuar?");
         
-        if (continuar) {
-            // Usuário clicou em "ok"
-            console.log("Usuário quer continuar mesmo com poucos jogadores.");
-            // Coloque aqui a condicional para continuar o sorteio
-            const times = dividirEmTimes(jogadores, 4);
-  renderTimes(times);
-  alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.')
-        } else {
-            // Usuário clicou em "Não"
-            console.log("Usuário não quer continuar.");
-            // Coloque aqui a condicional para interromper ou outra ação
-            return; // Encerra a função para não continuar
-        }
-  //const times = dividirEmTimes(jogadores, 4);
-  //renderTimes(times);
-  //alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.')
-}});
+    if (continuar) {
+      console.log("Usuário quer continuar mesmo com poucos jogadores.");
+      const times = dividirEmTimes(jogadores, 4);
+      renderTimes(times);
+      alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.');
+    } else {
+      console.log("Usuário não quer continuar.");
+      return;
+    }
+
+    // ❌ Aqui termina o if (jogadores.length < 8)
+    // ❌ mas você colocou mais um '}' depois, fechando o addEventListener duas vezes!
+  }
+}); // <-- esse é o fechamento correto
+
 
 // Botão limpar lista
 botaoLimpar.addEventListener('click', () => {
