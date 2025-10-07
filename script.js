@@ -137,31 +137,28 @@ form.addEventListener('submit', (e) => {
 
 // Botão sortear times
 botaoSortear.addEventListener('click', () => {
+  // Caso 1: Nenhum jogador
   if (jogadores.length === 0) {
     timesContainer.textContent = '⚠️ Adicione jogadores antes de sortear.';
     return;
   }
-  else if (jogadores.length > 8){
-  const times = dividirEmTimes(jogadores, 4);
-      renderTimes(times);
-      alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.');
- }
-   else if (jogadores.length < 8) {
+
+  // Caso 2: Menos de 8 jogadores
+  if (jogadores.length < 8) {
     const continuar = confirm("Poucos jogadores. Deseja continuar?");
-        if (continuar) {
-      console.log("Usuário quer continuar mesmo com poucos jogadores.");
-      const times = dividirEmTimes(jogadores, 4);
-      renderTimes(times);
-      alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.');
-    } else {
+    if (!continuar) {
       console.log("Usuário não quer continuar.");
       return;
     }
-
-    // ❌ Aqui termina o if (jogadores.length < 8)
-    // ❌ mas você colocou mais um '}' depois, fechando o addEventListener duas vezes!
+    console.log("Usuário quer continuar mesmo com poucos jogadores.");
   }
-}); // <-- esse é o fechamento correto
+
+  // Caso 3: 8 ou mais jogadores (ou usuário confirmou continuar)
+  const times = dividirEmTimes(jogadores, 4);
+  renderTimes(times);
+  alert('TIMES SORTEADOS! VEJA ABAIXO O RESULTADO.');
+});
+
 
 
 // Botão limpar lista
